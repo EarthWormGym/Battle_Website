@@ -18,9 +18,8 @@ class Battle < Sinatra::Base
   post '/player-names' do
     @player_1 = params[:player_1]
     @player_2 = params[:player_2]
-    erb(:index)
-    print @player_1
-    print @player_2
+    erb :index
+    erb :play
   end
 
   run! if app_file == $0
