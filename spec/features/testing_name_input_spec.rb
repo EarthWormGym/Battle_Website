@@ -3,10 +3,14 @@ require 'spec_helper'
 
 feature 'Testing name submits' do
   scenario 'can fill in player names and click submit button' do
-    visit('/player-names')
-    fill_in :player_1, with: 'Adam'
-    fill_in :player_2, with: 'Sim'
-    click_button 'Submit'
+    sign_in_and_play
     expect(page).to have_content "player 1's name is:Adam, player 2's name is:Sim"
+  end
+end
+
+feature 'Testing player_2\'s health' do
+  scenario 'can check how much health player 2 has' do
+    sign_in_and_play
+    expect(page).to have_content "Sim's health is:60"
   end
 end
