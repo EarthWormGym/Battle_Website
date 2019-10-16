@@ -11,6 +11,14 @@ end
 feature 'Testing player_2\'s health' do
   scenario 'can check how much health player 2 has' do
     sign_in_and_play
-    expect(page).to have_content "Sim's health is:60"
+    expect(page).to have_content "Sim's health is:60HP"
+  end
+end
+
+feature 'Attacking' do
+  scenario 'attack Player 2' do
+    sign_in_and_play
+    click_button'Attack'
+    expect(page).to have_content 'Adam attacked Sim'
   end
 end
