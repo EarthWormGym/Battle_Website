@@ -19,6 +19,8 @@ feature 'Attacking' do
   scenario 'attack Player 2' do
     sign_in_and_play
     click_button'Attack'
+    expect(page).to_not have_content 'Sim\'s health is:60HP'
     expect(page).to have_content 'Adam attacked Sim'
+    expect(page).to have_content 'Sim\'s health is:50HP'
   end
 end
